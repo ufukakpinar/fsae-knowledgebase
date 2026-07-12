@@ -22,6 +22,12 @@ Another thing that can be observed is that the fusing behaviour is slightly diff
 
 Another important safety aspect of our fuse is its ability to prevent arcing over the blown fuse path therefore ensuring that the circuit will not be unintentionally reenergized. Especially for high voltage DC or AC systems the voltage rating of the fuse is critical to ensure the fuse behaves appropriately in its appliciation. The gap created by the molten or vaporized metal when the fuse is tripped must be wide enough so that the circuit voltage cannot arc over that gap.
 
+## Interrupt Rating
+
+Interrupt rating determines the maximum fault current the fuse is designed to handle without failing catasthropihicaly. This puts a practical limit to how much fault current can be safely contained by the fuse. If this rating is exceeded the fuse might phyically break apart or the effects of the violent melting might cause a conducting or arcing path to form after the fuse trips.
+
 ## eFuses
 
 With recent developments in power electronics it is becoming much more popular to use eFuses which are in simple words integrated packages comprised of power MOSFETs and precise current sensors which can detect the current flowing over the MOSFETs and switch the current path off when the boundary conditions are exceeded. These types of fuses come with the obvious advantage of being reusable as they usually have a way of resetting the internal control system to allow current to flow again when the fault condition is resolved.
+
+for more information you can refer to documentation created by LittelFuse: https://www.littelfuse.com/assetdocs/fuse-fundamentals-at-the-heart-of-electrical-systems-fuses-keep-operations-live?assetguid=55d2e833-b53b-467f-a0c2-f15ff2316db3
