@@ -21,7 +21,7 @@ Where:
 
 As an example the cells used in my team has a maximum voltage of 4.2V and a minimum internal resistance of 13.2 - 2 = 11.2mOhms. The resulting maximum theorethical fault current is 375 Amps which is very substantial amount of current.
 
-![INR18650-25R Specifications](images/cell_fuse_test.png)
+![INR18650-25R Specifications](https://github.com/ufukakpinar/fsae-knowledgebase/blob/8678581713d33d07961ee33f14dd06ea5d09d71d/Fusing/assets/INR18650-25R%20Specifications.png)
 
 ## Current Carrying Requirements
 
@@ -38,14 +38,17 @@ In summary:
 
 ##
 
-$$
-\Huge \textbf{Testing}
-$$
+<h1 align="center">Fuse Testing</h1>
 
 ## Testing of Fuse Current Rating and Cell Protection
 
-Testing of cell fuse current rating for FSAE applications are usually conducted using off the shelf low voltage high current power supplies. (in our case MEANWELL NEL-400-2.8) Connecting 2 of these power supplies in parallel to an array of series or parallel connected milliohm scale power resistors allows us to pass a precise amount of high current over the fuse being tested. Using a thermocouple the temperature rise of the fuse under test can be recorded. It is also important to test the fuse with higher current level pulses to ensure it will not trip under expected operating conditions. In additon to this the fuse should be tested at the maximum pulse current specification of the cell it is protecting to ensure it trips within the required time. 
+Testing of cell fuse current rating for FSAE applications are usually conducted using off the shelf low voltage high current power supplies. (in our case MEANWELL NEL-400-2.8) Connecting 2 of these power supplies in parallel to an array of series or parallel connected milliohm scale power resistors allows us to pass a precise amount of high current over the fuse being tested. Using a thermocouple the temperature rise of the fuse under test can be recorded. It is also important to test the fuse with higher current level pulses to ensure it will not trip under expected operating conditions. In additon to this the fuse should be tested at the maximum pulse current specification of the cell it is protecting to ensure it trips within the required time. It is important to test at least 4 or 5 samples for each testign stage to ensure manufacturing tolerances or enviromental factors will not change the cell behaviour significantly. In additon to this creating a test environment as close as possible to the working environment of the cell will increase accuracy of performance figures.
 
-## Testing of Interrup Rating
+## Testing of Interrupt Rating
 
 Usign a source capable of producing the maximum available fault current the fuse should be tested for its interrupt rating to ensure it does not produce excessive sparks or shrapnel that could damage nearby cell casings and cause a fire. For FSAE teams a readily available very high current source is a cell spot welder which can generally produce much higher current than the typical cell fault current. As a higher interrupt rating would mean a lower current can be safely contained a precise current is not required for this test as long as the test current is demonstrated to be contained safely.
+
+## Testing of Voltage Rating 
+
+While voltage rating testing is tricky and a valid result is not expected from FSAE entrants with some provisions in the rules a simple voltage rating test should be performed for each tested sample using an insulation tester. This can help reinforce the fact that the designed fuse is safe to deploy at the maximum system voltage.
+
