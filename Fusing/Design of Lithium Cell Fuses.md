@@ -1,10 +1,27 @@
+<h1 align="center">Cell Level Fusing</h1>
+
 When multiple lithium-ion battery cells are joined in prallel to increase current and power output capabiltiy a critical safety problem arises. With the high energy density and very low internal resistance of these high performance cells a significant safety hazard is presented in the case of cell failure. If just one cell out of many cells in a parallel stack shorts out this could result in the thermal runaway of the entire stack as all of the cells would be practically get shorted out and try release all of their energy at once. This could result in a cascading effect that can cause the whole battery pack to catch fire. To safeguard against this possibility we must implement cell level fuses that will trip in case of cell failure and contain the damage to the failed cell.
 
-We must start the design considerations of the fuse with some operational parameters:
+We must start the design considerations of the fuse with some operational parameters.
 
 ## Fault Current Under Short Circuit Condition
 
 When a cell is shorted either by external or internal factors the maximum theorethical fault current can be calculated by dividing the maximum cell voltage by the internal resistance of the cell. The cell fuse must have an interrupt rating that is equal to this fault current minimum to ensure the failure can be safely contained. It is important to test the cell fuse with this theorethical maximum fault current to certify it for service.
+
+$$
+\Large
+I_{\text{fault,max}} = \frac{V_{\text{cell,max}}}{IR}
+$$
+
+Where:
+
+- $I_{\text{fault,max}}$ = Maximum theoretical fault current (A)
+- $V_{\text{cell,max}}$ = Maximum cell voltage (V)
+- $IR$ = Cell internal resistance ($\Omega$)
+
+As an example the cells used in my team has a maximum voltage of 4.2V and a minimum internal resistance of 13.2 - 2 = 11.2mOhms. The resulting maximum theorethical fault current is 375 Amps which is very substantial amount of current.
+
+![INR18650-25R Specifications](images/cell_fuse_test.png)
 
 ## Current Carrying Requirements
 
@@ -18,3 +35,17 @@ In summary:
   1. The cell level fuse must not trip at the rated current or any pulses not exceeding the cell specification.
   2. The cell level fuse should be designed to trip after the tripping point of the master pack fuse.
   3. The cell level fuse should not allow the cell to exceed its maximum pulse discharge specification.
+
+##
+
+$$
+\Huge \textbf{Testing}
+$$
+
+## Testing of Fuse Current Rating and Cell Protection
+
+Testing of cell fuse current rating for FSAE applications are usually conducted using off the shelf low voltage high current power supplies. (in our case MEANWELL NEL-400-2.8) Connecting 2 of these power supplies in parallel to an array of series or parallel connected milliohm scale power resistors allows us to pass a precise amount of high current over the fuse being tested. Using a thermocouple the temperature rise of the fuse under test can be recorded. It is also important to test the fuse with higher current level pulses to ensure it will not trip under expected operating conditions. In additon to this the fuse should be tested at the maximum pulse current specification of the cell it is protecting to ensure it trips within the required time. 
+
+## Testing of Interrup Rating
+
+Usign a source capable of producing the maximum available fault current the fuse should be tested for its interrupt rating to ensure it does not produce excessive sparks or shrapnel that could damage nearby cell casings and cause a fire. For FSAE teams a readily available very high current source is a cell spot welder which can generally produce much higher current than the typical cell fault current. As a higher interrupt rating would mean a lower current can be safely contained a precise current is not required for this test as long as the test current is demonstrated to be contained safely.
