@@ -32,7 +32,7 @@ While an easy way to ensure this is to rate the cell fuse above the operating ca
 As an example the Samsung INR18650-25R used above for fault current analysis has a recommended maximum pulse current of 100A for 1 second. This number can be used as a constraint to ensure the cell level fuse acts fast enough to disconnect the cell from the circuit before the cell gets damaged.
 
 In summary:
-  1. The cell level fuse must not trip at the rated current or any pulses not exceeding the cell specification.
+  1. The cell level fuse must not trip at the rated current or any pulses expected pulses not exceeding the cell specification.
   2. The cell level fuse should be designed to trip after the tripping point of the master pack fuse.
   3. The cell level fuse should not allow the cell to exceed its maximum pulse discharge specification.
 
